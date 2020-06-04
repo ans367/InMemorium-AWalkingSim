@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.inmemoriumunityproj.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\aschi\\Desktop\\VRIM 120\\Walking Sim Repo\\InMemorium-AWalkingSim\\InMemorium - Unity Proj\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "InMemorium - Unity Proj [Testing]"
+        }
+      }
+    }
+  ]
+}
