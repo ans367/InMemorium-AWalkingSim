@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/InM_VerticalSlice_MainMenu_v01.unity
+    guid: ee1c9e85de4b8014e8ed45d143f82b3e
+  - enabled: 1
+    path: Assets/_Scenes/InM_VerticalSlice_Wall_v01.unity
+    guid: feaae46b7fc08c646b925e42224a1dbb
   m_configObjects: {}
