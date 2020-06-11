@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &441072628942197727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441072628942197725}
+  - component: {fileID: 441072628942197724}
+  - component: {fileID: 441072628942197698}
+  - component: {fileID: 441072628942197699}
+  - component: {fileID: 441072628942197726}
+  m_Layer: 0
+  m_Name: LevelManager_Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &441072628942197725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441072628942197727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.65646, y: 0.4771945, z: 4.256299}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &441072628942197724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441072628942197727}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be3173e824d6cd4e9714c7f36c1ce50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLevel: 1
+  levelNames:
+  - InM_VerticalSlice_Wall_v01
+  - InM_VerticalSlice_MainMenu_v01
+  teleport: {fileID: 0}
+  player: {fileID: 0}
+--- !u!114 &441072628942197698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441072628942197727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db66236fa76c434fa9e60c0453a7317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnInterval: 8
+  range: 0.15
+  flowerPrefab: {fileID: 5863495026185616879, guid: 4adb362ec3dfc1d408ad10830f244512,
+    type: 3}
+  spawnPoint: {fileID: 0}
+--- !u!114 &441072628942197699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441072628942197727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db66236fa76c434fa9e60c0453a7317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnInterval: 8
+  range: 0.15
+  flowerPrefab: {fileID: 4570547708859054283, guid: 1bde6ce40e86ec844a268f556a1ea75b,
+    type: 3}
+  spawnPoint: {fileID: 0}
+--- !u!114 &441072628942197726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441072628942197727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db66236fa76c434fa9e60c0453a7317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnInterval: 8
+  range: 0.15
+  flowerPrefab: {fileID: 1837069545191261395, guid: 435a78bcfaf0d744d80335b74f661e08,
+    type: 3}
+  spawnPoint: {fileID: 0}

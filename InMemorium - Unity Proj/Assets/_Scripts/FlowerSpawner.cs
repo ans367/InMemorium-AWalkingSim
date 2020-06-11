@@ -1,76 +1,65 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class FlowerSpawner : MonoBehaviour
 {
+    //Red is the coding Wizard
+    public float spawnInterval = 10f;
+    public float range = 0.15f;
 
-    //Travis made this one work too. Hi Val!
-    public GameObject grabFlower01;
-    public GameObject spawnPoint01;
-    public GameObject grabFlower02;
-    public GameObject spawnPoint02;
-    public GameObject grabFlower03;
-    public GameObject spawnPoint03;
+    public GameObject flowerPrefab;
+    public GameObject spawnPoint;
+    
+    private float timeSinceLastSpawn = 0f;
 
-    private Vector3 flowerOnePos;
-    private Vector3 flowerTwoPos;
-    private Vector3 flowerThreePos;
-
-    private Vector3 basketRange;
-    public float basketSensitivity;
-    public float spawnSensitivity;
-    private Vector3 flowerOneProx;
-    private Vector3 flowerTwoProx;
-    private Vector3 flowerThreeProx;
-
-
-    // Start is called before the first frame update
+    // Use this for initialization
     void Start()
     {
-        Instantiate(grabFlower01, spawnPoint01.transform.position, Quaternion.identity);
-        Instantiate(grabFlower02, spawnPoint02.transform.position, Quaternion.identity);
-        Instantiate(grabFlower03, spawnPoint03.transform.position, Quaternion.identity);
-        basketRange.Set(basketRange.x * basketSensitivity, basketRange.y * basketSensitivity, basketRange.z * basketSensitivity);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        flowerOnePos = grabFlower01.transform.position;
-        flowerTwoPos = grabFlower02.transform.position;
-        flowerThreePos = grabFlower03.transform.position;
+        timeSinceLastSpawn += Time.deltaTime;
 
-        flowerOneProx = basketRange - flowerOnePos;
-        flowerTwoProx = basketRange - flowerTwoPos;
-        flowerThreeProx = basketRange - flowerThreePos;
-
-
-        //spawn flower one if not close enough to basket
-        if (Mathf.Abs(flowerOneProx.x) >= spawnSensitivity || Mathf.Abs(flowerOneProx.z) >= spawnSensitivity)
+        // At every interval, check spawn points
+        if (timeSinceLastSpawn >= spawnInterval)
         {
-            Instantiate(grabFlower01, spawnPoint01.transform.position, Quaternion.identity);
+            timeSinceLastSpawn = 0f;
+            CheckSpawnPoints();
+        }
+    }
+
+
+    void CheckSpawnPoints()
+    {
+        Vector3 position = spawnPoint.transform.position;
+        Quaternion rotation = spawnPoint.transform.rotation;
+
+        // Get names of all objects near the point
+        List<string> objectsAtPoint = new List<string>();
+        Collider[] colliders = Physics.OverlapSphere(position, range);
+        foreach(Collider c in colliders)
+        {
+            string item = c.gameObject.name;
+            if (!objectsAtPoint.Contains(item))
+            {
+                objectsAtPoint.Add(item);
+            }
         }
 
-        //spawn flower two if not close enough to basket
-        if (Mathf.Abs(flowerTwoProx.x) >= spawnSensitivity || Mathf.Abs(flowerTwoProx.z) >= spawnSensitivity)
+        // Spawn and Attach
+        if (!ListContainsName(objectsAtPoint, flowerPrefab.gameObject.name))
         {
-            StartCoroutine(SpawnFlowerTwo());
+            Instantiate(flowerPrefab, position, rotation);
         }
+    }
 
-        IEnumerator SpawnFlowerTwo()
-        {
-            Instantiate(grabFlower02, spawnPoint02.transform.position, Quaternion.identity);
-            return null;
-        }
-
-
-
-        //spawn flower three if not close enough to basket
-        if (Mathf.Abs(flowerThreeProx.x) >= spawnSensitivity || Mathf.Abs(flowerThreeProx.z) >= spawnSensitivity)
-        {
-            Instantiate(grabFlower03, spawnPoint03.transform.position, Quaternion.identity);
-        }
-
+    bool ListContainsName(List<String> list, string name)
+    {
+        return list.Contains(name) || list.Contains(name + "(Clone)");
     }
 }
